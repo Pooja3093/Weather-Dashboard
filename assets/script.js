@@ -108,16 +108,45 @@ function getApi() {
   // Call functions to create search history and fetch weather data
   createHistory(cityName);
   oneCall(cityName);
+  colorCode();
   localStorage.setItem(cityName,'0');
 }
 
 
 
 // Color code UV Index
-function colorCode(weatherInfo, ){
-  if(weatherInfo[5] <= 2){
-    document.querySelector(card0[0])
+function colorCode(){
+  var uvselector = [0, 0, 0, 0, 0, 0];
+
+  uvselector[0] = document.querySelector(card0[5]);
+  uvselector[1] = document.querySelector(card1[5]);
+  uvselector[2] = document.querySelector(card2[5]);
+  uvselector[3] = document.querySelector(card3[5]);
+  uvselector[4] = document.querySelector(card4[5]);
+  uvselector[5] = document.querySelector(card5[5]);
+
+  var uvtrim = [0, 0, 0, 0, 0, 0];
+  uvtrim[0] = uvselector[0].textContent.split(':')[1];
+  uvtrim[1] = uvselector[1].textContent.split(':')[1];
+  uvtrim[2] = uvselector[2].textContent.split(':')[1];
+  uvtrim[3] = uvselector[3].textContent.split(':')[1];
+  uvtrim[4] = uvselector[4].textContent.split(':')[1];
+  uvtrim[5] = uvselector[5].textContent.split(':')[1];
+
+  for(var i = 0; i<=5 ; i++){
+    if(uvtrim[i] <=2){
+      uvselector[i].classList.add("green");
+    } else if (uvtrim[i] >3 && uvtrim[i] <=5){
+      uvselector[i].classList.add("yellow");
+    } else if (uvtrim[i] >5 && uvtrim[i] <=7){
+      uvselector[i].classList.add("orange");
+    } else if (uvtrim[i] >7 && uvtrim[i] <=10){
+      uvselector[i].classList.add("red");
+    } else if (uvtrim[i] >10){
+      uvselector[i].classList.add("violet");
+    } 
   }
+
 }
 
 // Function to display weather data in all cards
@@ -129,7 +158,7 @@ function displayWeather(weatherInfo, cardIndex){
     document.querySelector(card0[2]).textContent = "Humidity : " + weatherInfo[2] + "%";
     document.getElementById(card0[3]).src = "http://openweathermap.org/img/wn/" + weatherInfo[3] + "@2x.png";
     document.querySelector(card0[4]).textContent = weatherInfo[4];
-    document.querySelector(card0[5]).textContent = "UV Index: " + weatherInfo[5];
+    document.querySelector(card0[5]).textContent = "UV Index:" + weatherInfo[5];
     colorCode(weatherInfo[5], card0[5]);
   } else if (cardIndex == 1){
     document.querySelector(card1[0]).textContent = "Temp : " + weatherInfo[0] + "°C";
@@ -137,7 +166,7 @@ function displayWeather(weatherInfo, cardIndex){
     document.querySelector(card1[2]).textContent = "Humidity : " + weatherInfo[2] + "%";
     document.getElementById(card1[3]).src = "http://openweathermap.org/img/wn/" + weatherInfo[3] + "@2x.png";
     document.querySelector(card1[4]).textContent = weatherInfo[4];
-    document.querySelector(card1[5]).textContent = "UV Index: " + weatherInfo[5];
+    document.querySelector(card1[5]).textContent = "UV Index:" + weatherInfo[5];
     colorCode(weatherInfo[5]);
   } else if (cardIndex == 2){
     document.querySelector(card2[0]).textContent = "Temp : " + weatherInfo[0] + "°C";
@@ -145,7 +174,7 @@ function displayWeather(weatherInfo, cardIndex){
     document.querySelector(card2[2]).textContent = "Humidity : " + weatherInfo[2] + "%";
     document.getElementById(card2[3]).src = "http://openweathermap.org/img/wn/" + weatherInfo[3] + "@2x.png";
     document.querySelector(card2[4]).textContent = weatherInfo[4];
-    document.querySelector(card2[5]).textContent = "UV Index: " + weatherInfo[5];
+    document.querySelector(card2[5]).textContent = "UV Index:" + weatherInfo[5];
     colorCode(weatherInfo[5]);
   } else if (cardIndex == 3){
     document.querySelector(card3[0]).textContent = "Temp : " + weatherInfo[0] + "°C";
@@ -153,7 +182,7 @@ function displayWeather(weatherInfo, cardIndex){
     document.querySelector(card3[2]).textContent = "Humidity : " + weatherInfo[2] + "%";
     document.getElementById(card3[3]).src = "http://openweathermap.org/img/wn/" + weatherInfo[3] + "@2x.png";
     document.querySelector(card3[4]).textContent = weatherInfo[4];
-    document.querySelector(card3[5]).textContent = "UV Index: " + weatherInfo[5];
+    document.querySelector(card3[5]).textContent = "UV Index:" + weatherInfo[5];
     colorCode(weatherInfo[5]);
   }
   else if (cardIndex == 4){
@@ -162,7 +191,7 @@ function displayWeather(weatherInfo, cardIndex){
     document.querySelector(card4[2]).textContent = "Humidity : " + weatherInfo[2] + "%";
     document.getElementById(card4[3]).src = "http://openweathermap.org/img/wn/" + weatherInfo[3] + "@2x.png";
     document.querySelector(card4[4]).textContent = weatherInfo[4];
-    document.querySelector(card4[5]).textContent = "UV Index: " + weatherInfo[5];
+    document.querySelector(card4[5]).textContent = "UV Index:" + weatherInfo[5];
     colorCode(weatherInfo[5]);
   }
   else if (cardIndex == 5){
@@ -171,9 +200,10 @@ function displayWeather(weatherInfo, cardIndex){
   document.querySelector(card5[2]).textContent = "Humidity : " + weatherInfo[2] + "%";
   document.getElementById(card5[3]).src = "http://openweathermap.org/img/wn/" + weatherInfo[3] + "@2x.png";
   document.querySelector(card5[4]).textContent = weatherInfo[4];
-  document.querySelector(card5[5]).textContent = "UV Index: " + weatherInfo[5];
+  document.querySelector(card5[5]).textContent = "UV Index:" + weatherInfo[5];
   colorCode(weatherInfo[5]);
   }
+  
 }
 
 
