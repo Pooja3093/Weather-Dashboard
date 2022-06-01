@@ -10,11 +10,11 @@ This application was designed using HTML, CSS, Javascript and server side API's.
 
 ## Links:
 
-[GitHub Repository]()
+[GitHub Repository](https://github.com/Pooja3093/jubilant-adventure.git)
 
 [Deployed Application](https://pooja3093.github.io/jubilant-adventure/)
 
-[Full Demo Video]()
+[Full Demo Video](https://drive.google.com/file/d/1DYT7ZWH0_T4Q4e33pRy_amhOfxPdkwuN/view)
 
 
 ## Summary
