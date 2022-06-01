@@ -38,3 +38,23 @@ footer{
     background:rgb(133, 133, 228);
     padding-top: 5px;
 }
+
+.green{
+    background-color: green;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.orange{
+    background-color: orange;
+}
+
+.red{
+    background-color: red;
+}
+
+.violet{
+    background-color: violet;
+}

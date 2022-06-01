@@ -14,12 +14,7 @@ var latitude;
 var longitude;
 var lang = "en";
 var weatherInfo = [0, 0, 0, 0, 0, 0];
-var card = {card0 : ['.card0-temp', '.card0-wind', '.card0-humidity', 'card0-img', '.card0-date', '.card0-uv'],
-            card1 : ['.card1-temp', '.card1-wind', '.card1-humidity', 'card1-img', '.card1-date', '.card1-uv'],
-            card2 : ['.card2-temp', '.card2-wind', '.card2-humidity', 'card2-img', '.card2-date', '.card2-uv'],
-            card3 : ['.card3-temp', '.card3-wind', '.card3-humidity', 'card3-img', '.card3-date', '.card3-uv'],
-            card4 : ['.card4-temp', '.card4-wind', '.card4-humidity', 'card4-img', '.card4-date', '.card4-uv'],
-            card5 : ['.card5-temp', '.card5-wind', '.card5-humidity', 'card5-img', '.card5-date', '.card5-uv'] };
+
 var card0 = ['.card0-temp', '.card0-wind', '.card0-humidity', 'card0-img', '.card0-date', '.card0-uv'];
 var card1 = ['.card1-temp', '.card1-wind', '.card1-humidity', 'card1-img', '.card1-date', '.card1-uv'];
 var card2 = ['.card2-temp', '.card2-wind', '.card2-humidity', 'card2-img', '.card2-date', '.card2-uv'];
@@ -31,6 +26,8 @@ var cardIndex;
 
 // Function to be executed at refresh or load or reload
 function init(){
+  var city0 = document.querySelector('.card0-cityname');
+  city0.textContent = 'TORONTO';
   oneCall('toronto');
   for (var i = 0; i < localStorage.length; i++) {
     createHistory(localStorage.key(i));
@@ -116,6 +113,13 @@ function getApi() {
 
 
 
+// Color code UV Index
+function colorCode(weatherInfo, ){
+  if(weatherInfo[5] <= 2){
+    document.querySelector(card0[0])
+  }
+}
+
 // Function to display weather data in all cards
 
 function displayWeather(weatherInfo, cardIndex){
@@ -126,6 +130,7 @@ function displayWeather(weatherInfo, cardIndex){
     document.getElementById(card0[3]).src = "http://openweathermap.org/img/wn/" + weatherInfo[3] + "@2x.png";
     document.querySelector(card0[4]).textContent = weatherInfo[4];
     document.querySelector(card0[5]).textContent = "UV Index: " + weatherInfo[5];
+    colorCode(weatherInfo[5], card0[5]);
   } else if (cardIndex == 1){
     document.querySelector(card1[0]).textContent = "Temp : " + weatherInfo[0] + "°C";
     document.querySelector(card1[1]).textContent = "Wind Speed : " + weatherInfo[1] + "km/h";
@@ -133,6 +138,7 @@ function displayWeather(weatherInfo, cardIndex){
     document.getElementById(card1[3]).src = "http://openweathermap.org/img/wn/" + weatherInfo[3] + "@2x.png";
     document.querySelector(card1[4]).textContent = weatherInfo[4];
     document.querySelector(card1[5]).textContent = "UV Index: " + weatherInfo[5];
+    colorCode(weatherInfo[5]);
   } else if (cardIndex == 2){
     document.querySelector(card2[0]).textContent = "Temp : " + weatherInfo[0] + "°C";
     document.querySelector(card2[1]).textContent = "Wind Speed : " + weatherInfo[1] + "km/h";
@@ -140,6 +146,7 @@ function displayWeather(weatherInfo, cardIndex){
     document.getElementById(card2[3]).src = "http://openweathermap.org/img/wn/" + weatherInfo[3] + "@2x.png";
     document.querySelector(card2[4]).textContent = weatherInfo[4];
     document.querySelector(card2[5]).textContent = "UV Index: " + weatherInfo[5];
+    colorCode(weatherInfo[5]);
   } else if (cardIndex == 3){
     document.querySelector(card3[0]).textContent = "Temp : " + weatherInfo[0] + "°C";
     document.querySelector(card3[1]).textContent = "Wind Speed : " + weatherInfo[1] + "km/h";
@@ -147,6 +154,7 @@ function displayWeather(weatherInfo, cardIndex){
     document.getElementById(card3[3]).src = "http://openweathermap.org/img/wn/" + weatherInfo[3] + "@2x.png";
     document.querySelector(card3[4]).textContent = weatherInfo[4];
     document.querySelector(card3[5]).textContent = "UV Index: " + weatherInfo[5];
+    colorCode(weatherInfo[5]);
   }
   else if (cardIndex == 4){
     document.querySelector(card4[0]).textContent = "Temp : " + weatherInfo[0] + "°C";
@@ -155,6 +163,7 @@ function displayWeather(weatherInfo, cardIndex){
     document.getElementById(card4[3]).src = "http://openweathermap.org/img/wn/" + weatherInfo[3] + "@2x.png";
     document.querySelector(card4[4]).textContent = weatherInfo[4];
     document.querySelector(card4[5]).textContent = "UV Index: " + weatherInfo[5];
+    colorCode(weatherInfo[5]);
   }
   else if (cardIndex == 5){
   document.querySelector(card5[0]).textContent = "Temp : " + weatherInfo[0] + "°C";
@@ -163,6 +172,7 @@ function displayWeather(weatherInfo, cardIndex){
   document.getElementById(card5[3]).src = "http://openweathermap.org/img/wn/" + weatherInfo[3] + "@2x.png";
   document.querySelector(card5[4]).textContent = weatherInfo[4];
   document.querySelector(card5[5]).textContent = "UV Index: " + weatherInfo[5];
+  colorCode(weatherInfo[5]);
   }
 }
 
