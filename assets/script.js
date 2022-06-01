@@ -9,7 +9,7 @@ var searchButton = document.getElementById('searchBtn');
 
 var appId = '1a4023a8d66f702ededffe15151334ac';
 var geoCoding = 'http://api.openweathermap.org/geo/1.0/direct';
-var Call = "http://api.openweathermap.org/data/2.5/onecall";
+var Call = "https://api.openweathermap.org/data/2.5/onecall";
 var latitude;
 var longitude;
 var lang = "en";
