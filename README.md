@@ -45,4 +45,4 @@ This search history is also stored in local storage and will also be displayed w
 
 ## Screenshot:
 
-![screenshot](./assets/Images/Screenshot.png)
+![screenshot](./assets/Images/screenshot.png)
