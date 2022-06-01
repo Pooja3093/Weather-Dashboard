@@ -12,7 +12,7 @@ This application was designed using HTML, CSS, Javascript and server side API's.
 
 [GitHub Repository]()
 
-[Deployed Application]()
+[Deployed Application](https://pooja3093.github.io/jubilant-adventure/)
 
 [Full Demo Video]()
 
@@ -45,4 +45,4 @@ This search history is also stored in local storage and will also be displayed w
 
 ## Screenshot:
 
-![screenshot]()
+![screenshot](./assets/Image/Screenshot.png)
