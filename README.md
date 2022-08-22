@@ -1,6 +1,4 @@
-# jubilant-adventure
-
-## Module 6 Challenge
+# Weather Dashboard
 
 
 This project was designed as an assignment for Module 6 : Server Side API
